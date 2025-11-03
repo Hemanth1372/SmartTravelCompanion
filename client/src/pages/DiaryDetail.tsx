@@ -6,7 +6,6 @@ import {
   Paper,
   Divider,
   Button,
-  // Removed: Grid, // Confirmed removal of Grid
   Card,
   CardMedia,
   CardContent,
@@ -19,7 +18,9 @@ const diaryDetails = {
   "1": {
     id: "1",
     title: "Darjeeling - The queen of eastern Himalayas",
-    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=500&q=60",
+    destination: "Darjeeling", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=500&q=60",
     category: "Nature",
     author: "Travel Expert",
     date: "May 10, 2023",
@@ -43,20 +44,23 @@ const diaryDetails = {
       "Happy Valley Tea Estate - World-famous Darjeeling tea",
       "Darjeeling Himalayan Railway - UNESCO World Heritage Site",
       "Mall Road - Shopping and local cuisine",
-      "Batasia Loop - Scenic viewpoint with War Memorial"
+      "Batasia Loop - Scenic viewpoint with War Memorial",
     ],
     images: [
       "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1544414089-c4e1e0d60bc6?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1566553253750-0cf6c2e27e5c?auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1709116140564-e4b00b3dba05?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2068",
+      "https://images.unsplash.com/photo-1706031614360-8f599347a373?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1175",
       "https://images.unsplash.com/photo-1558005137-d9619a5c539f?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1591267770966-2938e3b6ac93?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://plus.unsplash.com/premium_photo-1733259712004-3f2423864052?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1632",
+    ],
   },
   "2": {
     id: "2",
-    title: "8 hours in Guwahati - The spiritual significance of this Kamrupas trip",
-    image: "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60",
+    title:
+      "8 hours in Guwahati - The spiritual significance of this Kamrupas trip",
+    destination: "Guwahati", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1623776025811-fd139155a39b?auto=format&fit=crop&w=500&q=60",
     category: "Spiritual",
     author: "Travel Expert",
     date: "June 15, 2023",
@@ -80,20 +84,22 @@ const diaryDetails = {
       "Brahmaputra River Cruise - Panoramic views of the city",
       "Umananda Temple - World's smallest inhabited riverine island",
       "Assam State Museum - Rich cultural heritage",
-      "Basistha Ashram - Ancient temple surrounded by natural springs"
+      "Basistha Ashram - Ancient temple surrounded by natural springs",
     ],
     images: [
-      "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1623077848759-7a0e9b5d7a96?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1689947674001-f9a8a08f0480?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974",
+      "https://images.unsplash.com/photo-1722538277327-ce76b2f3de22?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://plus.unsplash.com/premium_photo-1691031429084-894ffad104ac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "https://plus.unsplash.com/premium_photo-1697729603596-90888a05a6bc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://images.unsplash.com/photo-1708670092244-f964d12fa9f3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+    ],
   },
   "3": {
     id: "3",
     title: "Nature on Wheels - Cycling tour through Jaipur",
-    image: "https://images.unsplash.com/photo-1599661046827-e143f730f4f0?auto=format&fit=crop&w=500&q=60",
+    destination: "Jaipur", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1651569411954-b843950d0c1e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169",
     category: "Adventure",
     author: "Travel Expert",
     date: "July 5, 2023",
@@ -117,20 +123,22 @@ const diaryDetails = {
       "Jal Mahal and Man Sagar Lake - Scenic water views",
       "Aravalli Hills - Challenging terrain and panoramic vistas",
       "Central Park - Urban green space and relaxation",
-      "Pink City streets - Cultural immersion on two wheels"
+      "Pink City streets - Cultural immersion on two wheels",
     ],
     images: [
-      "https://images.unsplash.com/photo-1599661046827-e143f730f4f0?auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1704980525572-71e6aaab66dc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1631",
       "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1587295656906-b06dca8f2340?auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1599661046699-7742c85c585d?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1680733432129-a634077c9048?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935",
+    ],
   },
   4: {
     id: 4,
     title: "Island hopping in Andaman - A tropical paradise",
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=500&q=60",
+    destination: "Andaman", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=500&q=60",
     category: "Beach",
     author: "Travel Expert",
     date: "August 20, 2023",
@@ -154,20 +162,22 @@ const diaryDetails = {
       "Cellular Jail - Historical colonial prison",
       "Neil Island - Natural rock formations and quiet beaches",
       "Ross Island - Colonial ruins reclaimed by nature",
-      "Marine life - Vibrant coral reefs and diverse aquatic species"
+      "Marine life - Vibrant coral reefs and diverse aquatic species",
     ],
     images: [
       "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1517619370736-d2974d8b9292?auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1712515497052-0b16bbdbfb4e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=500&q=60",
       "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1530948990335-1eb93cbe6430?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1530948990335-1eb93cbe6430?auto=format&fit=crop&w=500&q=60",
+    ],
   },
   5: {
     id: 5,
     title: "Adventure in Vizag - Exploring the coastal city",
-    image: "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
+    destination: "Vizag", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
     category: "Adventure",
     author: "Travel Expert",
     date: "September 10, 2023",
@@ -191,20 +201,23 @@ const diaryDetails = {
       "Rushikonda Beach - Water sports paradise",
       "Borra Caves - Ancient limestone formations",
       "Kambalakonda Wildlife Sanctuary - Boating and wildlife",
-      "Araku Valley - Tribal culture and coffee plantations"
+      "Araku Valley - Tribal culture and coffee plantations",
     ],
     images: [
+      "https://images.unsplash.com/photo-1655979521437-ae1875109d79?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1167",
       "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1760119547266-b5cc027a86e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "http://images.unsplash.com/photo-1555237627-74a0c63888fc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://images.unsplash.com/photo-1683363028862-f4e26cbb1706?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    ],
   },
   6: {
     id: 6,
-    title: "Likabali to Mechuka - A journey through Arunachal Pradesh's hidden gems",
-    image: "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
+    title:
+      "Likabali to Mechuka - A journey through Arunachal Pradesh's hidden gems",
+    destination: "Mechuka", // Added destination field (using the final destination)
+    image:
+      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
     category: "Nature",
     author: "Travel Expert",
     date: "October 5, 2023",
@@ -228,20 +241,22 @@ const diaryDetails = {
       "Daying Ering Wildlife Sanctuary - Biodiversity hotspot",
       "Tribal villages - Cultural immersion with Adi and Memba tribes",
       "Samten Yongcha monastery - Ancient Buddhist heritage",
-      "Mechuka Valley - Pristine Himalayan landscape"
+      "Mechuka Valley - Pristine Himalayan landscape",
     ],
     images: [
-      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1672399444836-3f2d667ded8e?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1567601092100-047450499f6d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1205 ",
+      "https://images.unsplash.com/photo-1720663520883-aeb55b215bfb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://images.unsplash.com/photo-1543046458-7f4ddc24c017?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://images.unsplash.com/photo-1752860626248-482766e5a95f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974",
+      "https://images.unsplash.com/photo-1626961610276-1a540095a546?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+    ],
   },
   7: {
     id: 7,
     title: "A spiritual travel guide to Gaya",
-    image: "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
+    destination: "Gaya", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
     category: "Spiritual",
     author: "Travel Expert",
     date: "November 15, 2023",
@@ -265,20 +280,23 @@ const diaryDetails = {
       "Mahabodhi Temple - Buddha's enlightenment site",
       "Bodhi Tree - Sacred fig tree of spiritual significance",
       "Dungeshwari Cave Temples - Buddha's ascetic life",
-      "Falgu River - Sacred river for ancestral rituals"
+      "Falgu River - Sacred river for ancestral rituals",
     ],
     images: [
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=500&q=60"
-    ]
+      "https://images.unsplash.com/photo-1710863805685-73058473ce7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
+      "https://plus.unsplash.com/premium_photo-1691086684103-a2d0319d79ac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+      "https://images.unsplash.com/photo-1654701924987-7ef65ef78fb3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2071",
+      "https://plus.unsplash.com/premium_photo-1678853634436-f3ec577b618d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "https://images.unsplash.com/photo-1712644992035-0be8e7dcfebb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1932 ",
+    ],
   },
   8: {
     id: 8,
-    title: "Chandigarh's shopping extravaganza: unleashing the charms of retail therapy",
-    image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
+    title:
+      "Chandigarh's shopping extravaganza: unleashing the charms of retail therapy",
+    destination: "Chandigarh", // Added destination field
+    image:
+      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
     category: "Shopping",
     author: "Travel Expert",
     date: "December 5, 2023",
@@ -302,22 +320,25 @@ const diaryDetails = {
       "Elante Mall - North India's shopping destination",
       "Sector 22 Market - Bargain shopping paradise",
       "Shastri Market - Traditional handicrafts and souvenirs",
-      "Phulkari work - Punjab's traditional embroidery"
+      "Phulkari work - Punjab's traditional embroidery",
     ],
     images: [
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60",
-      "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=500&q=60"
-    ]
-  }
+      "https://plus.unsplash.com/premium_photo-1742493603848-8f5e42c7e703?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1075",
+      "https://images.unsplash.com/photo-1670014493554-5e872c0bec16?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=522",
+      "https://images.unsplash.com/photo-1739363443125-97e4112ddbc4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "https://images.unsplash.com/photo-1679004589831-e932bdec5740?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=685",
+      "https://plus.unsplash.com/premium_photo-1679811672048-9d4b810a7588?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    ],
+  },
 };
 
 const DiaryDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const diary = diaryDetails[Number(id) as keyof typeof diaryDetails];
+  // Ensure the diary is retrieved correctly
+  const diary =
+    diaryDetails[Number(id) as keyof typeof diaryDetails] ||
+    diaryDetails[id as keyof typeof diaryDetails];
 
   if (!diary) {
     return (
@@ -338,6 +359,10 @@ const DiaryDetail: React.FC = () => {
       </Container>
     );
   }
+
+  // Use the destination field from the diary object
+  const destinationName = diary.destination || "Destination";
+  const navigateDestination = `/create-trip?destination=${destinationName}`;
 
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
@@ -434,8 +459,8 @@ const DiaryDetail: React.FC = () => {
               sx={{
                 flexBasis: {
                   xs: "100%",
-                  sm: "calc(50% - 8px)", // 2 items per row
-                  md: "calc(33.33% - 13.33px)", // 3 items per row
+                  sm: "calc(50% - 8px)", // 2 items per row (gap is 16px or 2 units)
+                  md: "calc(33.33% - 13.33px)", // 3 items per row (gap is 16px or 2 units)
                 },
                 minWidth: 0,
                 display: "flex",
@@ -460,12 +485,14 @@ const DiaryDetail: React.FC = () => {
         </Box>
         {/* --- End Photo Gallery --- */}
 
+        {/* Dynamic Plan Your Trip Button */}
         <Box sx={{ display: "flex", justifyContent: "center", mt: 6 }}>
           <Button
             variant="contained"
             color="error"
             size="large"
-            onClick={() => navigate("/create-trip?destination=Guwahati")}
+            // Use the dynamic destination name for the navigation
+            onClick={() => navigate(navigateDestination)}
             sx={{
               px: 4,
               py: 1.5,
@@ -473,7 +500,7 @@ const DiaryDetail: React.FC = () => {
               fontWeight: "bold",
             }}
           >
-            Plan Your Trip to Guwahati
+            {`Plan Your Trip to ${destinationName}`}
           </Button>
         </Box>
       </Paper>
