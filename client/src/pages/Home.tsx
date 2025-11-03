@@ -579,7 +579,9 @@ const Home: React.FC = () => {
                 size="small"
               >
                 <MenuItem value="">
-                  <Typography color="text.primary"><em>Interest</em></Typography>
+                  <Typography color="text.primary">
+                    <em>Interest</em>
+                  </Typography>
                 </MenuItem>
                 <MenuItem value="Nature">Nature</MenuItem>
                 <MenuItem value="Culture">Culture</MenuItem>
@@ -652,7 +654,9 @@ const Home: React.FC = () => {
               }}
             >
               <Card
-                onClick={() => navigate(`/create-trip?destination=${trip.city}`)}
+                onClick={() =>
+                  navigate(`/create-trip?destination=${trip.city}`)
+                }
                 sx={{
                   flexGrow: 1, // Card fills 100% height
                   display: "flex",

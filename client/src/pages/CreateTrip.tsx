@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // 👈 Import useEffect
 import {
   Box,
   TextField,
@@ -13,10 +13,42 @@ import {
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { useNavigate } from "react-router-dom";
+// 👈 Import useLocation for reading URL parameters
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTrip } from "../contexts/TripContext";
 import { Dayjs } from "dayjs";
 import dayjs from "dayjs";
+
+// --- Utility Functions for URL and Destination Parsing ---
+
+// Helper hook to easily get URL query parameters
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+// Helper function to provide a simple guess for the country based on the city/destination name
+const guessCountryFromCity = (city: string): string => {
+  const lowerCity = city.toLowerCase();
+
+  // Basic mapping for the cities in your diary data
+  if (
+    lowerCity.includes("darjeeling") ||
+    lowerCity.includes("guwahati") ||
+    lowerCity.includes("jaipur") ||
+    lowerCity.includes("vizag") ||
+    lowerCity.includes("chandigarh") ||
+    lowerCity.includes("gaya") ||
+    lowerCity.includes("mechuka") ||
+    lowerCity.includes("andaman")
+  ) {
+    return "India";
+  }
+
+  // You can extend this with a larger static map or a proper API call later
+  return "";
+};
+
+// --------------------------------------------------------
 
 // Styled components for consistent UI
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -39,6 +71,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
 
 export default function CreateTrip() {
   const navigate = useNavigate();
+  const query = useQuery(); // 👈 Use the custom hook to access URL params
   const { createTrip } = useTrip();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -68,6 +101,30 @@ export default function CreateTrip() {
     notes: "",
   });
 
+  // --- useEffect Hook to Read URL and Pre-fill Form ---
+  useEffect(() => {
+    // 1. Get the destination from the URL query string
+    const destinationQuery = query.get("destination");
+
+    if (destinationQuery) {
+      // 2. Set the initial form values
+      const countryGuess = guessCountryFromCity(destinationQuery);
+
+      setFormData((prev) => ({
+        ...prev,
+        name: `Trip to ${destinationQuery}`, // e.g., "Trip to Vizag"
+        description: `Plan based on the travel diary for ${destinationQuery}.`,
+        destination: {
+          city: destinationQuery,
+          country: countryGuess,
+        },
+        // You could also set a default date range here if needed
+      }));
+    }
+  }, [query]); // Re-run when the query parameters change
+
+  // -----------------------------------------------------
+
   const handleSubmit = async () => {
     setLoading(true);
     setError("");
@@ -78,6 +135,17 @@ export default function CreateTrip() {
         startDate: formData.startDate.toISOString(),
         endDate: formData.endDate.toISOString(),
       };
+
+      // Basic validation check (can be improved)
+      if (
+        !tripData.name ||
+        !tripData.destination.city ||
+        !tripData.destination.country
+      ) {
+        throw new Error(
+          "Please fill in the required fields (Trip Name, City, Country)."
+        );
+      }
 
       const newTrip = await createTrip(tripData);
       navigate(`/trips/${newTrip._id}`);
@@ -131,7 +199,7 @@ export default function CreateTrip() {
 
               <Box display="flex" gap={2}>
                 <TextField
-                  label="City"
+                  label="City *"
                   value={formData.destination.city}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -146,7 +214,7 @@ export default function CreateTrip() {
                   required
                 />
                 <TextField
-                  label="Country"
+                  label="Country *"
                   value={formData.destination.country}
                   onChange={(e) =>
                     setFormData((prev) => ({
