@@ -88,7 +88,7 @@ const diaries = [
     id: 5,
     title: "The 8 best adventure sports in and around Visakhapatnam",
     image:
-      "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=500&q=60",
+      "https://images.unsplash.com/photo-1611709891672-23448ef61bd9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=735",
     region: "Andhra Pradesh",
     category: "Adventure",
     description:
@@ -185,8 +185,8 @@ const Diaries: React.FC = () => {
               sx={{ backgroundColor: "white" }}
             >
               <MenuItem value="">
-                <em>Interests</em>
-              </MenuItem>
+                  <Typography color="text.primary"><em>Interests</em></Typography>
+                </MenuItem>
               {uniqueCategories.map((category) => (
                 <MenuItem key={category} value={category}>
                   {category}
@@ -203,8 +203,8 @@ const Diaries: React.FC = () => {
               sx={{ backgroundColor: "white" }}
             >
               <MenuItem value="">
-                <em>Regions</em>
-              </MenuItem>
+                  <Typography color="text.primary"><em>Regions</em></Typography>
+                </MenuItem>
               {uniqueRegions.map((region) => (
                 <MenuItem key={region} value={region}>
                   {region}
